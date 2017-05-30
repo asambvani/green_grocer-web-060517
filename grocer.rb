@@ -78,16 +78,9 @@ def apply_clearance(cart)
 end
 
 def checkout(cart, coupons)
-  puts "original cart: #{cart}"
-  puts "coupons: #{coupons}"
   consolidated_cart = consolidate_cart(cart)
-  puts "consolidated_cart: #{consolidated_cart}"
   consolidated_cart = apply_coupons(consolidated_cart, coupons)
-
-  puts "cart after coupons: #{consolidated_cart}"
   consolidated_cart = apply_clearance(consolidated_cart)
-  puts "cart after clearance: #{consolidated_cart}"
-
   total = 0
   consolidated_cart.each do |key1, value1|
     total += value1[:price] * value1[:count]
